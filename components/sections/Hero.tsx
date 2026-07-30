@@ -8,6 +8,7 @@ import { getProject, projects } from "@/lib/projects";
 import MagneticButton from "@/components/ui/MagneticButton";
 import HeroSpaceBackground from "@/components/ui/HeroSpaceBackground";
 import StackedImagePeel from "@/components/ui/StackedImagePeel";
+import { assetPath } from "@/lib/asset-path";
 
 const INLINE_IMAGES = projects.slice(0, 3);
 const TYS_INLINE_IMAGES = getProject("tell-your-story")?.inlineImages ?? [];
@@ -189,6 +190,8 @@ function InlineChip({
   landscape?: boolean;
   large?: boolean;
 }) {
+  const resolvedSrc = assetPath(src);
+  const resolvedPoster = assetPath(poster ?? src.replace(/\.(mp4|webm)$/i, "-poster.jpg"));
   const expandClass = overflow
     ? ` hero-inline-image--expand${large ? " hero-inline-image--expand-lg" : ""}`
     : "";
@@ -203,8 +206,8 @@ function InlineChip({
         style={{ opacity: 0 }}
       >
         <video
-          src={src}
-          poster={poster ?? src.replace(/\.(mp4|webm)$/i, "-poster.jpg")}
+          src={resolvedSrc}
+          poster={resolvedPoster}
           autoPlay
           loop
           muted
@@ -230,7 +233,7 @@ function InlineChip({
         style={{ opacity: 0 }}
       >
         <Image
-          src={src}
+          src={resolvedSrc}
           alt={alt}
           width={width}
           height={height}
@@ -243,7 +246,7 @@ function InlineChip({
 
   return (
     <span data-hero-chip className="hero-inline-image" style={{ opacity: 0 }}>
-      <Image src={src} alt={alt} fill className="object-cover" sizes="64px" />
+      <Image src={resolvedSrc} alt={alt} fill className="object-cover" sizes="64px" />
     </span>
   );
 }

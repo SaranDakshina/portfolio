@@ -8,13 +8,16 @@ const withMDX = createMDX({
   },
 });
 
+const basePath = "/portfolio";
+
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/portfolio",
-  assetPrefix: "/portfolio",
+  basePath,
+  assetPrefix: basePath,
   trailingSlash: true,
   images: { unoptimized: true },
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
   turbopack: {
     root: __dirname,
   },

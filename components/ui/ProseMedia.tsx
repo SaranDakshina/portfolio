@@ -2,6 +2,7 @@
 
 import HeightFitImage from "@/components/ui/HeightFitImage";
 import GalleryVideo from "@/components/ui/GalleryVideo";
+import { assetPath } from "@/lib/asset-path";
 import { getProseVideoFilter, parseProseMediaAlt } from "@/lib/prose-media";
 
 interface ProseMediaProps {
@@ -36,6 +37,8 @@ export default function ProseMedia({ src, alt }: ProseMediaProps) {
   const isSquare = aspectRatio === "1/1";
   const hasRealDimensions = width >= 100 && height >= 100;
   const videoFilter = getProseVideoFilter(src);
+  const resolvedSrc = assetPath(src);
+  const resolvedPoster = assetPath(posterForVideo(src));
 
   const figureClass = [
     "prose-media",
@@ -49,8 +52,8 @@ export default function ProseMedia({ src, alt }: ProseMediaProps) {
     <figure className={figureClass}>
       {isVideoSrc(src) ? (
         <GalleryVideo
-          src={src}
-          poster={posterForVideo(src)}
+          src={resolvedSrc}
+          poster={resolvedPoster}
           alt={caption}
           aspectClass={isSquare ? "" : aspectClass}
           aspectRatio={isSquare ? undefined : ratio}
@@ -58,7 +61,7 @@ export default function ProseMedia({ src, alt }: ProseMediaProps) {
         />
       ) : (
         <HeightFitImage
-          src={src}
+          src={resolvedSrc}
           alt={caption}
           aspectClass={isSquare ? "" : aspectClass}
           aspectRatio={isSquare ? undefined : ratio}

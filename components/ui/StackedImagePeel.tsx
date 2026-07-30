@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 
 type StackedImagePeelProps = {
   images: string[];
@@ -136,7 +137,7 @@ export default function StackedImagePeel({
           style={{ zIndex: images.length - index }}
         >
           <Image
-            src={src}
+            src={assetPath(src)}
             alt={index === 0 ? alt : ""}
             fill
             className="object-cover"

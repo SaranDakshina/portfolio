@@ -1,4 +1,5 @@
 import type { IconName } from "tech-stack-icons";
+import { assetPath } from "@/lib/asset-path";
 
 export type IconSize = "large" | "medium" | "small";
 
@@ -11,7 +12,7 @@ export interface TechIconItem {
   color: string;
 }
 
-export const skillIconPng = (id: string) => `/skills/${id}.png`;
+export const skillIconPng = (id: string) => assetPath(`/skills/${id}.png`);
 
 export const ICON_SIZES: Record<IconSize, number> = {
   large: 144,

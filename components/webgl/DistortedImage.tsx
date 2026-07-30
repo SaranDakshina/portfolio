@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 
 interface DistortedImageProps {
   src: string;
@@ -79,6 +80,7 @@ export default function DistortedImage({
   imageWidth,
   imageHeight,
 }: DistortedImageProps) {
+  const resolvedSrc = assetPath(src);
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [useFallback, setUseFallback] = useState(true);
@@ -280,7 +282,7 @@ export default function DistortedImage({
         (isHeightFit ? (
           imageWidth && imageHeight ? (
             <Image
-              src={src}
+              src={resolvedSrc}
               alt={alt}
               width={imageWidth}
               height={imageHeight}
@@ -293,7 +295,7 @@ export default function DistortedImage({
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={src}
+              src={resolvedSrc}
               alt={alt}
               className={heightFitImageClass}
               onLoad={(e) => handleNaturalSize(e.currentTarget)}
@@ -301,7 +303,7 @@ export default function DistortedImage({
           )
         ) : (
           <Image
-            src={src}
+            src={resolvedSrc}
             alt={alt}
             fill
             priority={priority}

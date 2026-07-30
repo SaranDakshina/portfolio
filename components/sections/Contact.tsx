@@ -1,5 +1,6 @@
 import SectionLabel from "@/components/ui/SectionLabel";
 import MagneticButton from "@/components/ui/MagneticButton";
+import { assetPath } from "@/lib/asset-path";
 
 export default function Contact() {
   return (
@@ -53,7 +54,7 @@ export default function Contact() {
             />
             <div className="border-t border-[var(--color-grey-border)] py-6">
               <a
-                href="/resume.pdf"
+                href={assetPath("/resume.pdf")}
                 className="inline-flex items-center gap-3 label-caps text-[var(--color-grey)] hover:text-[var(--color-ink)] transition-colors duration-200"
               >
                 Download résumé

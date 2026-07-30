@@ -1,5 +1,7 @@
 "use client";
 
+import { assetPath } from "@/lib/asset-path";
+
 interface GalleryVideoProps {
   src: string;
   poster: string;
@@ -23,8 +25,8 @@ export default function GalleryVideo({
       style={aspectRatio ? { aspectRatio } : undefined}
     >
       <video
-        src={src}
-        poster={poster}
+        src={assetPath(src)}
+        poster={assetPath(poster)}
         autoPlay
         loop
         muted
