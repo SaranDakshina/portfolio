@@ -9,6 +9,11 @@ const withMDX = createMDX({
 });
 
 const nextConfig: NextConfig = {
+  output: "export",
+  basePath: "/portfolio",
+  assetPrefix: "/portfolio",
+  trailingSlash: true,
+  images: { unoptimized: true },
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   turbopack: {
     root: __dirname,
