@@ -1,0 +1,109 @@
+# Te Matāpihi Library Digital Experience
+
+## Overview
+
+**Te Matāpihi** — the window — is Porirua City Library's Māori name, and the digital layer we built extended that idea across the building itself. A network of touch-driven screens deployed as **Electron applications** on dedicated hardware, each serving a distinct purpose across **six distinct screen types**: informing visitors, displaying live events, telling stories, and creating shared moments in the Digital Experience Room.
+
+I worked as a fullstack developer on the team, building the user-facing interfaces, implementing DatoCMS content integration, converting Lottie animations for touch feedback, and learning the Electron packaging and on-site deployment process — with technical architecture and CMS schema direction from the lead developer.
+
+---
+
+## My Role
+
+Fullstack Developer. I built the complete user-facing interface across six screen types, implemented DatoCMS content integration and GraphQL queries, converted and integrated Lottie animations for touch feedback, and packaged and deployed the Electron applications on library hardware — working to the technical architecture set by the lead developer.
+
+---
+
+## The Challenge
+
+Public library installations operate under constraints that web development rarely prepares you for. The hardware runs **unattended** for long periods. The audience spans every age and comfort level with technology. Content must stay current without calling a developer. And each screen type pulls from a different data source — CMS content, a desktop application API, or a backend-managed playlist.
+
+The installation needed to feel cohesive as a single digital experience while serving **six genuinely different interaction models** across the building.
+
+---
+
+## Highlights
+
+### Corner Screens
+
+**Self-service content through DatoCMS.** Informational touch displays positioned throughout the library, with **Lottie-driven navigation** and screen transitions at every interaction point. All content is managed through DatoCMS — library staff update text, images, and navigation without developer involvement, and content is structured in DatoCMS around how library staff actually organise and publish information.
+
+![Corner screen with Lottie-driven navigation|1/1](/projects/library/library-corner-screen.mp4)
+
+![Corner screens installation|1799/1080](/projects/library/library-corner-screens.jpg)
+
+### Manaaki Screens
+
+**Live events via REST API.** Weekly event displays that pull live data from the library's existing desktop application via REST API. The Manaaki screens surface what's happening this week — workshops, readings, community events — keeping the digital layer in sync with the library's operational calendar.
+
+![Manaaki screen showing events of the week|1799/1080](/projects/library/library-manaaki-screen.jpg)
+
+### Digital Experience Room
+
+**Dual-screen playback over the local network.** A dual-screen setup where a small controller screen drives playback on a large display. When a visitor interacts with content on the small screen — selecting a video, navigating a menu — the corresponding media plays on the large screen. Local network messaging between Electron instances keeps the two displays synchronised in real time.
+
+![Dual-screen video interaction in the Digital Experience Room|1920/1080](/projects/library/library-digital-experience-room.mp4)
+
+### Story Screen
+
+**Long-form narratives in DatoCMS.** A long-form reading experience for narratives managed entirely in DatoCMS. Stories are structured content — text, images, and layout blocks — that library staff compose and publish through the CMS, then render as immersive, touch-navigable reading experiences on dedicated screens.
+
+![Story screen for reading CMS-managed narratives|1799/1080](/projects/library/library-story-screen.jpg)
+
+### Book Touch Interaction
+
+**Tactile book exploration at kiosk scale.** A tactile exploration screen where visitors interact with digital book content through touch — browsing pages, selecting topics, and exploring archival material through a physical kiosk built into the library space.
+
+![Book touch interaction screen before and after installation|1799/1080](/projects/library/library-book-touch.jpg)
+
+![Book touch interaction in use|1/1](/projects/library/library-book-touch.mp4)
+
+### Bleachers Wall
+
+**Topic-driven playlists managed remotely.** A large-format display wall with backend-managed playlists that rotate images and video based on the topic being presented. When the library hosts a themed event or exhibition, the bleachers wall shifts its content to match — managed remotely through the playlist backend without touching the frontend code.
+
+![Bleachers wall showing topic-based image and video playlists|1799/1080](/projects/library/library-bleachers-wall.jpg)
+
+---
+
+## Technical Decisions
+
+**React + Electron for deployment.** The web stack gave us the full expressive power of React, TypeScript, and modern CSS while running as native applications on dedicated library hardware. Electron provided the runtime control we needed — fullscreen kiosk mode, local file access, and inter-process communication between screen instances.
+
+**DatoCMS as the content backbone.** Six screen types, each with different content shapes, all managed by non-technical library staff. Content across six screen types was managed through DatoCMS — modular content blocks for stories, structured fields for corner screen navigation, and media libraries for the bleachers wall. I implemented GraphQL queries tailored per screen type so each application fetched only what it needed.
+
+**Lottie for corner screen navigation.** Corner screen transitions and interaction responses used Lottie animations converted from design assets. This gave us vector-quality motion at any kiosk resolution without the performance cost of video-based transitions. The conversion pipeline — from After Effects through Bodymovin to optimised Lottie JSON — became a repeatable process we applied across the corner screen experience.
+
+**REST API for Manaaki events.** Rather than duplicating event data in the CMS, the Manaaki screens pull directly from the library's existing desktop application API. Events of the week stay in sync automatically, with the frontend handling fetch timing, error states, and graceful degradation when the API is unavailable.
+
+**Local network synchronisation for dual screens.** The Digital Experience Room uses messaging between Electron instances over the local network. A controller screen sends playback commands; the large display receives and executes them. This keeps latency low enough for the interaction to feel immediate — select on one screen, watch on the other.
+
+**Topic-driven playlists for the bleachers wall.** The large-format display renders images and video based on the active presentation topic, managed through a backend playlist system. The frontend handles media rotation, transitions between items, and layout adaptation for the wall's aspect ratio.
+
+---
+
+## Challenges
+
+**Touch interaction at public scale.** Library kiosks attract a wide range of interaction styles — aggressive exploration from children, cautious first touches from seniors, and everything in between. Touch targets were sized generously, interaction states were made visually obvious, and idle timeouts reset the experience for the next visitor.
+
+**Lottie performance on fixed hardware.** Kiosk hardware has a fixed performance ceiling. Lottie animations needed to be optimised — reduced layer counts, simplified paths, and tested frame rates on the actual deployment machines before sign-off.
+
+**Content modelling across six screen types.** Each screen experience had genuinely different content requirements. Implementing against a well-defined DatoCMS content model early — before content entry began — meant each screen type had clear content shapes to build against. The modular content approach meant new screen types could be added without restructuring existing models.
+
+**Electron stability for unattended operation.** Applications running 12 hours a day without supervision need crash recovery, automatic state reset after inactivity, and local logging. These weren't features added at the end — they were built in from the first sprint.
+
+---
+
+## Outcome
+
+The installation launched across **all six screen types** and gave library staff **full self-service control through DatoCMS**. The Manaaki screens kept event information live without manual updates. The **Digital Experience Room** became a focal point for group viewing. And the bleachers wall adapted its content to match whatever the library was presenting that week.
+
+---
+
+## What I Learned
+
+This was the project where I went deepest on **touch as the primary input method** — not as a novelty, but as the defining interaction for an entire building's digital layer. Designing for touch at kiosk scale, with Lottie driving navigation on the corner screens, changed how I think about interface design.
+
+Implementing **DatoCMS for physical spaces** — where content updates need to reach screens reliably and staff need to manage six different content types without training — taught me that the best CMS integrations are the ones invisible to the people using them.
+
+And deploying through Electron, from development through to on-site installation, gave me **hands-on experience** deploying a digital installation in a real public space — from Electron packaging through to on-site setup. That kind of responsibility sharpens every decision you make.

@@ -1,0 +1,92 @@
+# Visa Wellington On a Plate 2026
+
+## Overview
+
+**Wellington On a Plate** is New Zealand's largest food and beverage festival — a month each August when the capital's hospitality industry puts its best work forward. For the 2026 season, I worked as frontend developer on a complete digital redesign connecting **80,000+ annual visitors** with hundreds of events, dozens of restaurants, and the full editorial narrative of the festival.
+
+---
+
+## My Role
+
+Frontend Developer. I owned the public-facing UI — from responsive component development and Figma implementation through to performance optimisation and CMS integration. I worked closely with the design team, a backend developer, and the festival's editorial and marketing staff.
+
+---
+
+## The Challenge
+
+Festival visitors needed a faster, more engaging way to discover **hundreds of restaurants, events, and venues** across Wellington. The previous site carried years of accumulated complexity — it loaded slowly, struggled under **seasonal traffic spikes**, and made it genuinely hard for users to find and book events.
+
+---
+
+## Highlights
+
+### Interactive Homepage
+
+**Physics-based homepage with Three.js and Matter.js.** A playful landing experience powered by physics-based interactions that encourages exploration. Festival elements respond to user input, creating a memorable first impression that sets the tone for the rest of the experience.
+
+![WOAP interactive homepage with physics-based elements|1920/1112](/projects/woap/woap-interaction.mp4)
+
+### Seasonal Homepage Modes
+
+**Date-driven UI modes managed through DatoCMS.** The homepage doesn't stay static across the year — it shifts between three seasonal states controlled from the CMS. **Pre-event**, visitors see anticipation-building content: countdowns, early programme reveals, and sign-up calls to action. **During the event**, the homepage switches to full discovery mode with events, bookings, and map access front and centre. **Post-event**, the experience wraps up with highlights, recap content, and a look ahead to next year.
+
+Festival staff set the season dates and mode-specific content in DatoCMS without developer involvement. The frontend reads the active season and renders the appropriate homepage layout, messaging, and CTAs automatically.
+
+### Event Filters
+
+**Live filtering across date, type, cuisine, and price.** The filter panel lets visitors narrow hundreds of events down to what's relevant to them. Selections update results instantly, active filters stay visible, and users can refine their search without losing context or starting over.
+
+![WOAP event filters screen|1920/1110](/projects/woap/woap-filters.mp4)
+
+### List View
+
+**Responsive card grid for browsing results.** The list view presents events as scannable cards with key details at a glance — venue, date, cuisine, and price. On mobile, the grid scrolls smoothly and scales down without losing readability. Visitors can switch between list and map views without resetting their search state.
+
+![WOAP event list view|1920/1110](/projects/woap/woap-list-view.mp4)
+
+### Interactive Map
+
+**Geospatial discovery across Wellington.** The map view lets visitors explore events by location — browsing pins across the city, filtering results geographically, and switching back to the list view with their search context intact.
+
+![WOAP event discovery map with searchable listings|1907/991](/projects/woap/woap-map.jpg)
+
+---
+
+## Technical Decisions
+
+**Static generation over server rendering.** Festival content changes in the days before and during the event, but pages are read far more than they're written. Pre-rendering meant the site was essentially CDN-served — no server cold starts, no database queries on the critical path.
+
+**GraphQL for content fetching.** DatoCMS's GraphQL API let us be surgical about what each page needed. The event listing page fetched a different shape of data from the event detail page. No over-fetching, no waterfalls.
+
+**Season-based homepage rendering.** DatoCMS stores the festival season window and mode-specific content for pre-, during-, and post-event states. The frontend evaluates the current date against the season config and renders the matching homepage variant — no manual deploys when the festival transitions between phases.
+
+**Component composition over configuration.** The design had variation — featured events looked different from standard listings, editorial articles had their own treatment — but the underlying components were shared and composed, not configured through prop-drilling.
+
+---
+
+## Challenges
+
+**Traffic spikes.** The festival's opening day generates the kind of traffic that exposes any architectural weakness. Static pages meant the origin server was rarely touched, but we still needed to think carefully about revalidation timing and CDN cache headers to ensure updated content reached users quickly.
+
+**CMS complexity.** Hundreds of events with complex relationships — venues, chefs, booking links, dietary information — required careful data modelling in DatoCMS. Getting the schema right early saved significant pain during content entry.
+
+**Cross-browser booking flows.** Third-party ticketing integrations meant we had less control over the booking experience than we'd have liked. We built wrapper components that improved the visual integration and reduced the friction for users moving between the festival site and the booking system.
+
+---
+
+## Outcome
+
+- **More engaging first impression** through the interactive homepage
+- **Faster event discovery** with searchable listings and live filtering
+- **Scalable CMS-driven architecture** that freed the festival team from developer dependencies
+- **Smooth experience** across desktop and mobile
+
+The rebuilt platform consistently achieved **Lighthouse performance scores above 90**. Page load times dropped significantly from the previous version, and content updates that previously required developer time became **self-service for the festival team**.
+
+---
+
+## What I Learned
+
+Building for seasonal events taught me that **performance isn't abstract**. When your platform has a concentrated window in which it matters — a month a year, with a specific audience who came to do one thing — there's no room for slowness. Every second of load time is an event someone didn't book.
+
+I also learned that **the best CMS integrations are invisible** to the people using them. When content staff stop asking developers for help, you've built something that works.

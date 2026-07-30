@@ -1,0 +1,81 @@
+# Interactive Museum AV Experience
+
+## Overview
+
+Museums are asking a question they didn't used to ask: what should digital do that a physical exhibit can't? Not replace the artefact — never that — but extend the story, invite participation, and make history feel like something you can reach into.
+
+This installation was built for a national New Zealand museum — a multi-screen, touch-driven interactive experience that ran 12 hours a day, seven days a week, in a high-traffic public gallery space. Visitors could explore historical content, navigate between story threads, and trigger audio-visual sequences that responded to their choices in real time.
+
+I worked as creative technologist and developer, responsible for the full technical build from architecture through to installation and on-site commissioning.
+
+---
+
+## My Role
+
+Creative Technologist & Developer. I designed the technical architecture, built the full application in Electron and React, implemented the touch and interaction systems, handled multi-screen synchronisation via WebSockets, and commissioned the hardware installation on-site.
+
+---
+
+## The Problem
+
+Museum AV installations have a specific set of constraints that most web development doesn't prepare you for. The hardware is fixed. The environment is public and physically demanding — high footfall, variable lighting, museum-grade housings. The application runs unattended for months at a time. There is no helpdesk.
+
+Touch interfaces in public spaces attract a different kind of interaction than consumer products. Children explore aggressively. Adults approach with caution. The interface had to work for both without a tutorial, without onboarding, and without any assumption of prior familiarity.
+
+---
+
+## The Approach
+
+The application was built in Electron — a Chromium-based runtime that gave us the full expressive power of the web stack (React, GSAP, WebGL) while running as a native application on the dedicated hardware. This was the right trade-off: we got the flexibility of the web, the performance of native rendering, and full control over the runtime environment.
+
+Multi-screen synchronisation was handled via WebSockets over a local network — a primary display and three auxiliary screens, each receiving timing events from a central state machine. The interaction model was designed for ambient discovery: visitors could explore freely, but the experience also progressed without interaction, so it remained engaging as a passive backdrop.
+
+Stability was a first-class requirement. We built error recovery, automatic state reset after inactivity, and detailed local logging from the first sprint.
+
+---
+
+## Key Features
+
+- Multi-screen synchronised experience across four displays
+- Touch-responsive primary interface with physical gesture detection
+- Real-time audio-visual synchronisation using WebSockets
+- Ambient auto-play mode that activates after inactivity timeout
+- Content management system for museum staff to update content without developer involvement
+- Automatic crash recovery and state reset
+- Local logging and health monitoring
+
+---
+
+## Technical Decisions
+
+**Electron over native.** A native application would have offered some performance advantages but at significant cost: longer development time, a different tech stack, and much harder iteration cycles. Electron let us iterate quickly using tools we knew, with full access to Node.js for system-level operations.
+
+**WebSockets for synchronisation.** We needed millisecond-accurate synchronisation between screens for audio-visual sequences. HTTP polling would have introduced too much latency. WebSockets over the local network gave us the timing precision the experience required.
+
+**State machine for experience logic.** The interaction model had clearly defined states — idle, active, sequence, transitioning — and rules about how they could move between each other. Modelling this explicitly as a state machine prevented a large class of bugs and made the experience logic auditable.
+
+**Canvas for physics-based elements.** Some interactive elements used Matter.js for physics simulation — the satisfying tactile quality of objects that respond to touch with physical weight. Canvas rendering kept this performant even on the older hardware the installation used.
+
+---
+
+## Challenges
+
+**Touch calibration.** Display panels in museum housings often have calibration drift over time. We built a hidden calibration mode accessible to museum technical staff, and designed interaction targets to be generously sized so small drift didn't break the experience.
+
+**Audio synchronisation.** Getting audio to fire reliably at the correct moment across state transitions — and to handle edge cases like rapid user input during playback — required careful management of the audio context and sequencing logic.
+
+**Remote support.** Once the installation was live, direct access was limited. The logging system and the ability to push updates over the local network became essential. We also documented the failure modes and recovery procedures thoroughly for the museum's technical team.
+
+---
+
+## Outcome
+
+The installation ran for its full exhibition period without critical failure. Museum staff reported it was one of the most reliably performing digital installations in their recent history. Visitor engagement data showed dwell times significantly above the gallery average.
+
+---
+
+## What I Learned
+
+Public installations are humbling. Every assumption about user behaviour that works in a consumer product gets tested to destruction when the user is a six-year-old with sticky fingers, or an elderly visitor who's never touched a touch screen, or a teenager who's actively trying to break it.
+
+Building for robustness — real robustness, not just happy-path robustness — is a discipline that transfers back to every kind of software you build.

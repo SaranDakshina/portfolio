@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00001A"/>
+      <stop offset="100%" stop-color="#3A5A8A" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1125" fill="url(#g)"/>
+  <rect x="60" y="60" width="80" height="3" fill="#3A5A8A" opacity="0.9"/>
+  <text x="60" y="562" font-family="system-ui,sans-serif" font-size="56" font-weight="500" fill="#FAF9F6" opacity="0.92">Museum AV</text>
+  <text x="60" y="612" font-family="system-ui,sans-serif" font-size="16" fill="#3A5A8A" letter-spacing="4">DETAIL 2</text>
+  <circle cx="780" cy="120" r="220" fill="#3A5A8A" opacity="0.08"/>
+  <circle cx="140" cy="1045" r="160" fill="#3A5A8A" opacity="0.05"/>
+</svg>

@@ -1,0 +1,86 @@
+# Tell Your Stories
+
+## Overview
+
+**Tell Your Stories** is a digital storytelling platform created for **Te Matapihi**, designed to preserve, share, and celebrate stories from communities, cultures, and organisations through an immersive interactive experience.
+
+Instead of presenting information as static pages, the platform encourages users to explore stories naturally — through engaging visuals, multimedia content, and meaningful interactions. The application is delivered as an Electron-based desktop experience with a CMS-driven content architecture, allowing non-technical users to manage and publish stories without developer involvement.
+
+---
+
+## My Role
+
+UI/UX Designer & Frontend Developer. I collaborated directly with the client during discovery and planning, translated business requirements into intuitive user experiences, designed and refined interface layouts, and developed the frontend application using reusable React components. I integrated the frontend with the headless CMS for dynamic content delivery, built accessible interfaces, and supported testing, refinement, and deployment through to a polished final product.
+
+---
+
+## The Challenge
+
+Traditional storytelling doesn't translate well to static web pages. Communities needed a way to preserve their stories with rich media — text, imagery, video, and audio — while keeping the creation process approachable for non-technical staff.
+
+The platform had to balance beautiful design, accessibility, performance, and ease of content management, while remaining flexible enough to evolve as new stories and content are added over time.
+
+---
+
+## Highlights
+
+### Story Creation Workflow
+
+**A guided journey from idea to published story.** The platform organises creation into clear stages — Join the Dots, Story Writing, Illustrations, Audio and Visuals, and Final Assets — so authors always know where they are and what comes next. A project dashboard with folder organisation keeps multiple stories manageable, and asset upload flows let teams bring in source material before writing begins.
+
+![Tell Your Stories platform overview — project dashboard, asset upload, story reader, and collaboration|1920/1280](/projects/tys/tell-your-story-img-2.webp)
+
+### Illustrations Workspace
+
+**Node-based canvas linking story text to visual assets.** Authors connect written content to illustration options through an interactive workspace. A global reference asset library provides consistent visual context, chapter thumbnails track progress through the narrative, and generate/confirm/regenerate controls let teams iterate on imagery without leaving the editor.
+
+![Illustrations workspace with node canvas and reference asset library|1600/1028](/projects/tys/tys-1.jpg)
+
+### Audio & Visuals Editor
+
+**Slide-based story structure with integrated voice-over controls.** Each chapter appears as a thumbnail in a slides panel alongside a live preview of the current slide. An integrated audio player lets authors hear narration in context, while voice-over selection and fine-grained controls — speed, stability, style exaggeration — give non-technical users full control over how their stories sound.
+
+![Audio and Visuals editor with slides panel and voice-over controls|1600/1028](/projects/tys/tys-2.jpg)
+
+---
+
+## Technical Decisions
+
+**React + Electron for the authoring environment.** The web stack gave us the full expressive power of React, TypeScript, and modern CSS while delivering as a native desktop application. Electron provided the runtime control needed for a focused authoring tool — fullscreen workspace, local file access, and a consistent environment across deployment machines.
+
+**Headless CMS integration.** Every piece of content — text, imagery, video, and supporting media — is dynamically managed through the CMS. The frontend fetches and renders story structure per project, so content updates reach the platform without code changes or developer involvement.
+
+**Reusable React components.** Slide panels, audio controls, asset libraries, and the workflow stepper were built from shared primitives and composed per screen. This kept the interface consistent across a complex multi-stage editor while making new features straightforward to add.
+
+**Workflow-driven UX.** Linear creation stages reduce cognitive load for first-time story authors. Rather than exposing every tool at once, the interface reveals capabilities as authors progress — matching how people actually think about building a story from research through to final publication.
+
+---
+
+## Challenges
+
+**Designing for non-technical authors.** A storytelling platform with illustration generation, voice-over controls, and multi-stage workflows risks overwhelming users who just want to tell a story. Every screen was designed around progressive disclosure — showing what's needed now, not everything at once.
+
+**Integrating multiple media types.** Illustrations, voice-over, slides, and reference assets each have their own editing paradigms. Bringing them into a single coherent experience required careful information architecture and consistent interaction patterns across stages.
+
+**Accessible interfaces in a desktop context.** Electron applications don't inherit the same accessibility conventions as the web. Touch targets, contrast ratios, keyboard navigation, and screen reader support were built in from the first sprint rather than retrofitted.
+
+**Client collaboration through iteration.** Discovery sessions, design reviews, and stakeholder sign-off cycles meant the interface evolved significantly between first wireframes and final delivery. Keeping component architecture flexible enough to absorb design changes without rewriting was essential.
+
+---
+
+## Outcome
+
+- **A polished storytelling platform** balancing design quality, accessibility, and CMS flexibility
+- **Self-service publishing** — non-technical users manage and publish stories without developer involvement
+- **Scalable architecture** that supports new stories and content as the platform grows
+- **Seamless client collaboration** from discovery through to deployment
+
+---
+
+## What I Learned
+
+This project deepened my understanding of what it means to **design for content creators rather than developers**. When the interface is the product — not just a container for content — every layout decision, every control placement, and every workflow step matters.
+
+Bridging UX design and frontend development on the same project taught me that the best authoring tools are the ones where the design thinking and the component architecture speak the same language. When they don't, users feel the gap immediately.
+
+Building a CMS-driven platform where non-technical staff are the primary audience reinforced a principle I keep coming back to: **the best integrations are invisible**. When story authors stop asking developers for help, you've built something that works.
