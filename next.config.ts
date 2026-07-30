@@ -8,12 +8,13 @@ const withMDX = createMDX({
   },
 });
 
-const basePath = "/portfolio";
+const productionBasePath = "/portfolio";
+const basePath = process.env.NODE_ENV === "production" ? productionBasePath : "";
 
 const nextConfig: NextConfig = {
   output: "export",
   basePath,
-  assetPrefix: basePath,
+  assetPrefix: basePath || undefined,
   trailingSlash: true,
   images: { unoptimized: true },
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
