@@ -13,11 +13,11 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Saran — Frontend Developer & Creative Technologist",
+  title: "Saran — Full Stack Developer & Creative Technologist",
   description:
     "I build digital experiences that turn ideas into stories people remember. Frontend engineer, creative technologist, storyteller.",
   openGraph: {
-    title: "Saran — Frontend Developer & Creative Technologist",
+    title: "Saran — Full Stack Developer & Creative Technologist",
     description:
       "I build digital experiences that turn ideas into stories people remember.",
     type: "website",
@@ -31,7 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={geist.variable}>
-      <body className="min-h-screen flex flex-col bg-[var(--color-canvas)] text-[var(--color-ink)]">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen flex flex-col bg-[var(--color-canvas)] text-[var(--color-ink)]"
+      >
         <div className="grain-overlay" aria-hidden="true" />
         <ClientProviders>
           <TransitionProvider>

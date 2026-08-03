@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, isValidElement } from "react";
 import { subscribePointer, getPointer } from "@/lib/pointer-motion";
 import { usePageTransition } from "@/components/providers/TransitionProvider";
+import { withBasePath } from "@/lib/paths";
 
 const RADIUS = 120;
 const WRAPPER_STRENGTH = 0.25;
@@ -164,11 +165,12 @@ export default function MagneticButton({
   }
 
   const external = isExternalHref(href);
+  const resolvedHref = external ? href : withBasePath(href.startsWith("#") ? `/${href}` : href);
 
   return (
     <a
       ref={wrapperRef}
-      href={href}
+      href={resolvedHref}
       className={classes}
       data-cursor
       aria-label={ariaLabel}

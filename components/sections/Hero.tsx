@@ -9,6 +9,7 @@ import MagneticButton from "@/components/ui/MagneticButton";
 import HeroSpaceBackground from "@/components/ui/HeroSpaceBackground";
 import StackedImagePeel from "@/components/ui/StackedImagePeel";
 import { assetPath } from "@/lib/asset-path";
+import { homeSectionHref } from "@/lib/paths";
 
 const INLINE_IMAGES = projects.slice(0, 3);
 const TYS_INLINE_IMAGES = getProject("tell-your-story")?.inlineImages ?? [];
@@ -26,7 +27,8 @@ export default function Hero() {
       if (cancelled) return;
 
       const lines = sectionRef.current?.querySelectorAll("[data-hero-line]");
-      if (lines) {
+      const chips = sectionRef.current?.querySelectorAll("[data-hero-chip]");
+      if (lines?.length) {
         gsap.fromTo(
           lines,
           { yPercent: 110 },
@@ -34,8 +36,7 @@ export default function Hero() {
         );
       }
 
-      const chips = sectionRef.current?.querySelectorAll("[data-hero-chip]");
-      if (chips) {
+      if (chips?.length) {
         gsap.fromTo(
           chips,
           { scale: 0, opacity: 0 },
@@ -57,15 +58,6 @@ export default function Hero() {
       if (ctas) {
         gsap.fromTo(ctas, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.65, ease: "power2.out" });
       }
-
-      const icons = sectionRef.current?.querySelectorAll("[data-hero-icon]");
-      if (icons) {
-        gsap.fromTo(
-          icons,
-          { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.6, stagger: 0.08, delay: 0.8, ease: "back.out(2)" }
-        );
-      }
     }
 
     init();
@@ -83,7 +75,7 @@ export default function Hero() {
       <HeroSpaceBackground />
       <div className="container-content relative z-10 flex flex-col items-center text-center gap-8 md:gap-10">
         <p data-hero-label className="label-caps mb-2 opacity-0 md:mt-8 md:mb-8">
-          Frontend Developer — Creative Technologist
+          Full Stack Developer — Creative Technologist
         </p>
 
         <h1 className="display-xl text-[var(--color-ink)] max-w-[20ch] mx-auto ">
@@ -132,7 +124,7 @@ export default function Hero() {
           data-hero-sub
           className="text-lg md:text-xl text-[var(--color-grey)] max-w-[42ch] mx-auto leading-relaxed opacity-0 "
         >
-          Based in Wellington, Aotearoa. Designing frontend systems that balance
+          Based in New Zealand. Designing frontend systems that balance
           performance, motion, and clarity — across web, installation, and film.
         </p>
 
@@ -141,13 +133,13 @@ export default function Hero() {
           className="my-4 flex w-full flex-col items-center gap-5 opacity-0 md:my-4 sm:flex-row sm:justify-center sm:gap-6 sm:[&_a]:min-h-0 sm:[&_a]:px-8 sm:[&_a]:py-4"
         >
           <div className="w-[50dvw] mx-auto sm:mx-0 sm:w-auto [&>a]:w-full [&>a]:justify-center sm:[&>a]:w-auto">
-            <MagneticButton href="#work" variant="primary">
+            <MagneticButton href={homeSectionHref("work")} variant="primary">
               See the work
               <ArrowRight />
             </MagneticButton>
           </div>
           <div className="w-[50dvw] mx-auto sm:mx-0 sm:w-auto [&>a]:w-full [&>a]:justify-center sm:[&>a]:w-auto">
-            <MagneticButton href="#contact" variant="secondary">
+            <MagneticButton href={homeSectionHref("contact")} variant="secondary">
               Get in touch
             </MagneticButton>
           </div>

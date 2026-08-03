@@ -11,6 +11,7 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import type { gsap as GsapType } from "gsap";
 import { scrollToHash } from "@/lib/scroll";
+import { stripBasePath, withBasePath } from "@/lib/paths";
 
 interface TransitionContextValue {
   navigate: (href: string) => void;
@@ -33,9 +34,15 @@ export function usePageTransition() {
 
 function getPathFromHref(href: string): string {
   try {
-    return new URL(href, window.location.origin).pathname;
+    if (href.startsWith("#") || href.startsWith("/#")) {
+      return "/";
+    }
+
+    const url = new URL(href, window.location.origin);
+    return stripBasePath(url.pathname);
   } catch {
-    return href.split("#")[0] || "/";
+    const pathPart = href.split("#")[0] || "/";
+    return stripBasePath(pathPart);
   }
 }
 
@@ -121,7 +128,7 @@ export default function TransitionProvider({
 
       if (targetPath === pathname && hash) {
         scrollToTarget(hash);
-        window.history.pushState(null, "", href.startsWith("#") ? hash : href);
+        window.history.pushState(null, "", withBasePath(href.startsWith("#") ? `/${href}` : href));
         return;
       }
 

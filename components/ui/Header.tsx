@@ -4,12 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import TransitionLink from "@/components/ui/TransitionLink";
 import DarkSpaceBackground from "@/components/ui/DarkSpaceBackground";
 import { getLenis } from "@/lib/scroll";
+import { homeSectionHref } from "@/lib/paths";
 
 const navLinks = [
-  { label: "Work", href: "/#work" },
-  { label: "Experience", href: "/#experience" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Work", href: homeSectionHref("work") },
+  { label: "Experience", href: homeSectionHref("experience") },
+  { label: "About", href: homeSectionHref("about") },
+  { label: "Contact", href: homeSectionHref("contact") },
 ];
 
 const SCROLL_THRESHOLD = 48;

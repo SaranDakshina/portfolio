@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import TransitionLink from "@/components/ui/TransitionLink";
 import { getProject, projects } from "@/lib/projects";
 import { getCaseStudy } from "@/lib/mdx";
+import { homeSectionHref } from "@/lib/paths";
 import CaseStudyHero from "@/components/sections/CaseStudyHero";
 import CaseStudyGallery from "@/components/sections/CaseStudyGallery";
 import CaseStudyLiveCta from "@/components/sections/CaseStudyLiveCta";
@@ -37,7 +38,7 @@ export default async function CaseStudyPage({ params }: Props) {
     <article className="page-top page-bottom relative">
       <div className="container-content mb-10 relative z-10">
         <TransitionLink
-          href="/#work"
+          href={homeSectionHref("work")}
           className="inline-flex items-center gap-2 label-caps text-[var(--color-grey)] hover:text-[var(--color-ink)] transition-colors"
           data-cursor
         >

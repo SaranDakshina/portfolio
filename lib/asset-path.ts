@@ -1,7 +1,7 @@
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+import { withBasePath } from "@/lib/paths";
 
 export function assetPath(path: string): string {
   if (!path || path.startsWith("http://") || path.startsWith("https://")) return path;
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  return `${basePath}${normalized}`;
+  return withBasePath(normalized);
 }

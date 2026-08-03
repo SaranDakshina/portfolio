@@ -21,28 +21,17 @@ export default function About() {
           {/* Story */}
           <div className="space-y-6 text-[var(--color-ink-soft)] leading-relaxed">
             <p>
-              I build software end to end for production conditions — web
-              applications in React and Next.js, headless CMS architectures and
-              API integrations, and interactive experiences packaged for
-              deployment on dedicated hardware in public spaces.
+              I build software end to end for production — React and Next.js
+              apps, headless CMS architectures, and interactive experiences for
+              public spaces. That means caring about traffic spikes, always-on
+              reliability, and content models editors can maintain without a
+              developer in the loop.
             </p>
             <p>
-              That means caring about what happens under load: traffic spikes
-              during festival openings, always-on kiosk reliability, and content
-              models editors can maintain without a developer in the loop. The
-              goal is software that performs cleanly and stays maintainable long
-              after launch.
-            </p>
-            <p>
-              I work across web, installation, and film — festival platforms
-              built for real traffic spikes, CMS-driven touch experiences in
-              libraries and museums, and long-form editorial narratives that hold
-              attention the way good journalism does.
-            </p>
-            <p>
-              Based in Wellington, Aotearoa — a city that punches well above its
-              weight in creative output, and has made me believe small teams with
-              high standards can do genuinely memorable work.
+              I work across web, installation, and film — festival platforms,
+              CMS-driven touch experiences, and long-form editorial narratives.
+              Based in New Zealand, where small teams with high standards do
+              genuinely memorable work.
             </p>
 
             <div className="pt-4 border-t border-[var(--color-grey-border)]">
