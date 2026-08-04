@@ -12,7 +12,7 @@ def write_png(filename, bg_color, label):
 placeholders = [
     ("woap", "#1A0800", "#C4532A", "WOAP / Wellington On a Plate"),
     ("te-matapihi", "#001A0F", "#4A7A5E", "Te Matapihi Digital Experience"),
-    ("museum-av", "#00001A", "#3A5A8A", "Interactive Museum AV Experience"),
+    ("zonescan-install", "#00001A", "#3A5A8A", "Gutermann ZONESCAN Install"),
     ("tell-your-story", "#0A0500", "#8A6A3A", "Art of Living Documentary"),
 ]
 

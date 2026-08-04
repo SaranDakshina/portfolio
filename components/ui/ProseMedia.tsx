@@ -29,12 +29,15 @@ function cssAspectRatio(aspectRatio?: string) {
   return `${width} / ${height}`;
 }
 
+const PORTRAIT_MAX_WIDTH_PX = 240;
+
 export default function ProseMedia({ src, alt }: ProseMediaProps) {
   const { caption, aspectRatio } = parseProseMediaAlt(alt);
   const aspectClass = aspectClassFromRatio(aspectRatio);
   const ratio = cssAspectRatio(aspectRatio);
   const [width, height] = aspectRatio?.split("/").map(Number) ?? [];
   const isSquare = aspectRatio === "1/1";
+  const isPortrait = Boolean(aspectRatio && width > 0 && height > width);
   const hasRealDimensions = width >= 100 && height >= 100;
   const videoFilter = getProseVideoFilter(src);
   const resolvedSrc = assetPath(src);
@@ -44,12 +47,20 @@ export default function ProseMedia({ src, alt }: ProseMediaProps) {
     "prose-media",
     "prose-media--full",
     isSquare ? "prose-media--square" : "",
+    isPortrait ? "prose-media--portrait" : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <figure className={figureClass}>
+    <figure
+      className={figureClass}
+      style={
+        isPortrait
+          ? { width: "100%", maxWidth: PORTRAIT_MAX_WIDTH_PX, marginInline: "auto" }
+          : undefined
+      }
+    >
       {isVideoSrc(src) ? (
         <GalleryVideo
           src={resolvedSrc}
@@ -68,7 +79,11 @@ export default function ProseMedia({ src, alt }: ProseMediaProps) {
           imageWidth={hasRealDimensions ? width : undefined}
           imageHeight={hasRealDimensions ? height : undefined}
           objectFit="contain"
-          sizes="(max-width: 768px) 100vw, 1152px"
+          sizes={
+            isPortrait
+              ? `(max-width: 768px) 80vw, ${PORTRAIT_MAX_WIDTH_PX}px`
+              : "(max-width: 768px) 100vw, 1152px"
+          }
         />
       )}
       {caption ? <figcaption>{caption}</figcaption> : null}

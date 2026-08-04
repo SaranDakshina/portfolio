@@ -70,7 +70,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </div>
 
-      {!["woap", "te-matapihi", "tell-your-story"].includes(project.slug) && (
+      {!["woap", "te-matapihi", "zonescan-install", "tell-your-story"].includes(project.slug) && (
         <CaseStudyGallery slug={project.slug} />
       )}
 

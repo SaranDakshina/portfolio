@@ -240,6 +240,16 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
+.prose-styles .prose-media.prose-media--portrait {
+  width: 100%;
+  max-width: 15rem;
+  margin-inline: auto;
+}
+.prose-styles .prose-media.prose-media--portrait > div {
+  width: 100%;
+  max-width: 15rem;
+  margin-inline: auto;
+}
 .prose-styles .prose-media--square {
   width: min(32rem, 50dvh, 100%);
   margin-left: auto;

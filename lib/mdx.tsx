@@ -16,7 +16,7 @@ function paragraphContainsOnlyImage(node: Element | undefined) {
   );
 }
 
-const caseStudySlugs = ["woap", "te-matapihi", "museum-av", "tell-your-story"] as const;
+const caseStudySlugs = ["woap", "te-matapihi", "zonescan-install", "tell-your-story"] as const;
 
 export async function getCaseStudy(slug: string): Promise<React.ReactNode> {
   if (!caseStudySlugs.includes(slug as (typeof caseStudySlugs)[number])) {

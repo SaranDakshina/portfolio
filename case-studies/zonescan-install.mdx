@@ -1,0 +1,83 @@
+# Gutermann ZONESCAN Install
+
+## Overview
+
+**ZONESCAN Install** is an enterprise Android application built for **Gutermann**, a German utility technology company, to simplify the installation and maintenance of IoT-based water leak detection systems used by utility providers worldwide. Field engineers deploy NB-IoT loggers across water networks — placing hardware in manholes, configuring devices, and syncing data back to the cloud — often in outdoor conditions with limited connectivity and time pressure.
+
+I led the complete user journey design, collaborating closely with stakeholders to understand field engineers' workflows and translate complex installation processes into an intuitive mobile experience. My work focused on improving usability, streamlining device setup, project management, firmware updates, and maintenance workflows to enable faster and more reliable field operations.
+
+---
+
+## My Role
+
+Product Designer. I ran stakeholder workshops and user journey mapping sessions, translated field-engineer workflows into wireframes and high-fidelity screens, built interactive prototype flows in Figma, and aligned the interface with Android Material Design patterns and Gutermann's brand guidelines.
+
+---
+
+## The Challenge
+
+Installing IoT leak-detection hardware in the field is fundamentally different from consumer app design. Engineers work outdoors, often wearing gloves, with variable network coverage and strict accuracy requirements. A misconfigured logger or incorrect position marker can mean costly return visits.
+
+The app had to handle a wide surface area — server authentication, multi-step device setup, map-based logger deployment, project switching, firmware updates, and offline data sync — without overwhelming users who need to move quickly between tasks. Enterprise constraints added further complexity: production server credentials, asset ID management, and status tracking across temporary and final installation positions.
+
+---
+
+## Highlights
+
+### End-to-End User Journey
+
+**From login to field deployment in a single coherent flow.** The design covers the full lifecycle: server credential entry, project selection, device discovery and setup, map-based logger placement, and data upload. Each stage was mapped against real field-engineer tasks to ensure the app supported how people actually work — not how the technology is organised internally.
+
+![Gutermann ZONESCAN Install — complete user journey across login, setup, home, projects, and upload flows|3000/1666](/projects/zonescan-install/figma-guidelines.jpg)
+
+### Map-Based Logger Deployment
+
+**Spatial context meets device management.** The Home screen combines an interactive map with a bottom-sheet loggers list, letting engineers see where devices are placed and drill into individual logger details without switching contexts. Map pins show logger numbers and asset IDs, while the list view surfaces signal strength (RSRP), registration dates, and position status — Final or Temporary — at a glance.
+
+![Map-based logger deployment with loggers list and device status indicators|647/1373](/projects/zonescan-install/map-loggers-screen.png)
+
+### Device Setup Wizard
+
+**Step-by-step hardware configuration.** The setup prototype guides engineers through device discovery, connection, signal verification, and parameter configuration. Progress indicators and confirmation screens reduce errors during installation, while technical readings like signal strength are presented in plain language with clear pass/fail states.
+
+### Project Management & Data Sync
+
+**Organising work across multiple deployments.** The Projects tab gives engineers a structured view of active installations, while the Upload tab handles data synchronisation back to the Gutermann cloud. Clear sync status and queue management help teams stay confident that field data has reached the server — even when connectivity is intermittent.
+
+---
+
+## Design Decisions
+
+**Material Design for Android.** The app follows native Android patterns — bottom navigation, bottom sheets, filter chips, and FAB placement — so engineers get familiar interaction models on devices they already use in the field.
+
+**Map + list dual view.** Field work is inherently spatial. Combining a map with a scrollable device list lets engineers orient themselves geographically while managing technical details, without forcing a mode switch between "where" and "what."
+
+**Progressive disclosure for technical steps.** Complex installation flows are broken into discrete stages with clear entry and exit points. Engineers see only what they need at each step, reducing cognitive load during time-sensitive deployments.
+
+**Status-driven workflows.** Position status (Final vs Temporary) and signal strength indicators use colour-coded chips and icons designed for quick scanning in bright outdoor light — critical when engineers are managing dozens of loggers across a site.
+
+**High-contrast field-readable UI.** Generous touch targets, strong typographic hierarchy, and a navy-and-cyan palette aligned with Gutermann branding ensure the interface remains usable in harsh lighting and with gloved hands.
+
+---
+
+## Challenges
+
+**Balancing technical accuracy with simplicity.** IoT installation involves precise technical parameters — server addresses, asset IDs, RSRP readings — that cannot be simplified away. The challenge was presenting this information clearly without hiding what engineers need to verify.
+
+**Stakeholder alignment.** The product serves field engineers, project managers, and Gutermann's engineering team, each with different priorities. Workshops and journey mapping helped align the design around the engineer's primary task flow while accommodating enterprise requirements like server credential management.
+
+**Designing for connectivity gaps.** Field engineers frequently work in areas with poor mobile coverage. The upload and sync flows were designed with offline-first assumptions — clear queue states, retry affordances, and status feedback so users always know whether their data has been transmitted.
+
+---
+
+## Outcome
+
+The redesigned user journey streamlined device setup and logger deployment workflows, giving field engineers a single tool for installation, maintenance, and data sync. Status indicators and map-based navigation reduced the time spent searching for devices on site, while the step-by-step setup wizard lowered configuration errors during initial deployment.
+
+---
+
+## What I Learned
+
+Designing for field engineers taught me that enterprise mobile UX is a discipline of its own. Consumer app patterns — minimal onboarding, playful micro-interactions, assumed connectivity — do not transfer. Field tools need to be fast, legible, fault-tolerant, and honest about system state.
+
+Mapping complex technical workflows into clear mobile journeys requires deep collaboration with the people who use the product daily. The best design decisions came directly from watching how engineers navigate real installation sites — not from assumptions made at a desk.
