@@ -66,23 +66,6 @@ export const projects: Project[] = [
     color: "#1A4A3A",
   },
   {
-    slug: "zonescan-install",
-    name: "Gutermann ZONESCAN Install",
-    shortName: "ZONESCAN Install",
-    year: "2024",
-    impact:
-      "An enterprise Android app that simplifies IoT water-leak logger installation and maintenance for utility field engineers.",
-    role: "Product Designer",
-    stack: ["Figma", "Android", "Material Design", "User Journey Design", "Prototyping", "Enterprise UX"],
-    what: "Led end-to-end user journey design for a native Android field-installation app — from stakeholder discovery through login, device setup, map-based logger deployment, project management, firmware updates, and maintenance workflows.",
-    why: "Field engineers need to install and maintain complex IoT hardware in unpredictable outdoor conditions. The design had to translate multi-step technical processes into a clear, reliable mobile experience.",
-    image: "/projects/zonescan-install/hero.png",
-    imageAlt: "Gutermann ZONESCAN Install — enterprise Android app for IoT logger deployment",
-    imageWidth: 1600,
-    imageHeight: 960,
-    color: "#0A1A3A",
-  },
-  {
     slug: "tell-your-story",
     name: "Tell Your Stories",
     shortName: "Tell Your Stories",
@@ -104,6 +87,23 @@ export const projects: Project[] = [
     imageWidth: 1920,
     imageHeight: 1080,
     color: "#2A1A0A",
+  },
+  {
+    slug: "zonescan-install",
+    name: "Gutermann ZONESCAN Install",
+    shortName: "ZONESCAN Install",
+    year: "2024",
+    impact:
+      "An enterprise Android app that simplifies IoT water-leak logger installation and maintenance for utility field engineers.",
+    role: "Product Designer",
+    stack: ["Figma", "Android", "Material Design", "User Journey Design", "Prototyping", "Enterprise UX"],
+    what: "Led end-to-end user journey design for a native Android field-installation app — from stakeholder discovery through login, device setup, map-based logger deployment, project management, firmware updates, and maintenance workflows.",
+    why: "Field engineers need to install and maintain complex IoT hardware in unpredictable outdoor conditions. The design had to translate multi-step technical processes into a clear, reliable mobile experience.",
+    image: "/projects/zonescan-install/hero.png",
+    imageAlt: "Gutermann ZONESCAN Install — enterprise Android app for IoT logger deployment",
+    imageWidth: 1600,
+    imageHeight: 960,
+    color: "#0A1A3A",
   },
 ];
 
