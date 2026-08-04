@@ -9,13 +9,13 @@ export default function Footer() {
         </span>
         <div className="flex items-center gap-6">
           <a
-            href="mailto:hello@saran.dev"
+            href="mailto:saran56vijay@gmail.com"
             className="label-caps link-underline text-[var(--color-grey)] hover:text-[var(--color-ink)]"
           >
             Email
           </a>
           <a
-            href="https://linkedin.com/in/saran"
+            href="https://www.linkedin.com/in/saran24/"
             target="_blank"
             rel="noopener noreferrer"
             className="label-caps link-underline text-[var(--color-grey)] hover:text-[var(--color-ink)]"
@@ -23,7 +23,7 @@ export default function Footer() {
             LinkedIn
           </a>
           <a
-            href="https://github.com/saran"
+            href="https://github.com/SaranDakshina"
             target="_blank"
             rel="noopener noreferrer"
             className="label-caps link-underline text-[var(--color-grey)] hover:text-[var(--color-ink)]"

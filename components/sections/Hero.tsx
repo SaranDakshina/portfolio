@@ -122,7 +122,7 @@ export default function Hero() {
 
         <p
           data-hero-sub
-          className="text-lg md:text-xl text-[var(--color-grey)] max-w-[42ch] mx-auto leading-relaxed opacity-0 "
+          className="hidden md:block text-lg md:text-xl text-[var(--color-grey)] max-w-[42ch] mx-auto leading-relaxed opacity-0 "
         >
           Based in New Zealand. Designing frontend systems that balance
           performance, motion, and clarity — across web, installation, and film.

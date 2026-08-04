@@ -19,7 +19,7 @@ export default function Contact() {
             <p className="text-lg text-[var(--color-grey)] leading-relaxed max-w-[40ch] mb-8">
               Let&apos;s create something memorable.
             </p>
-            <MagneticButton href="mailto:hello@saran.dev" variant="primary">
+            <MagneticButton href="mailto:saran56vijay@gmail.com" variant="primary">
               Start a conversation
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path
@@ -37,19 +37,19 @@ export default function Contact() {
           <div className="space-y-0">
             <ContactRow
               label="Email"
-              value="hello@saran.dev"
-              href="mailto:hello@saran.dev"
+              value="saran56vijay@gmail.com"
+              href="mailto:saran56vijay@gmail.com"
             />
             <ContactRow
               label="LinkedIn"
-              value="linkedin.com/in/saran"
-              href="https://linkedin.com/in/saran"
+              value="linkedin.com/in/saran24"
+              href="https://www.linkedin.com/in/saran24/"
               external
             />
             <ContactRow
               label="GitHub"
-              value="github.com/saran"
-              href="https://github.com/saran"
+              value="github.com/SaranDakshina"
+              href="https://github.com/SaranDakshina"
               external
             />
             <div className="border-t border-[var(--color-grey-border)] py-6">

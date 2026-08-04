@@ -10,11 +10,8 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
           {/* Headline */}
           <div>
-            <h2 className="display-lg max-w-[18ch]">
-              Full stack developer. Creative technologist. Storyteller.{" "}
-              <em className="not-italic text-[var(--color-accent)]">
-                In that order.
-              </em>
+            <h2 className="display-lg max-w-[20ch]">
+              Full stack developer and creative technologist.
             </h2>
           </div>
 
