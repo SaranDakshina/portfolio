@@ -4,6 +4,7 @@ import CareerTimeline from "@/components/career-timeline/CareerTimeline";
 import Skills from "@/components/sections/Skills";
 import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
+import ForYou from "@/components/sections/ForYou";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Skills />
       <About />
       <Contact />
+      <ForYou />
     </>
   );
 }

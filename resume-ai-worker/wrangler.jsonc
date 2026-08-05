@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "resume-ai-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-01",
+  "ai": {
+    "binding": "AI"
+  },
+  "vars": {
+    "AI_MODEL": "@cf/openai/gpt-oss-20b",
+    "ALLOWED_ORIGIN": "https://sarandakshina.github.io"
+  }
+}

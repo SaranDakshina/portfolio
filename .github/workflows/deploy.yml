@@ -28,6 +28,8 @@ jobs:
       - run: yarn install --frozen-lockfile
 
       - run: yarn build
+        env:
+          NEXT_PUBLIC_RESUME_AI_ENDPOINT: ${{ vars.NEXT_PUBLIC_RESUME_AI_ENDPOINT }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/ui/Header";
-import Footer from "@/components/ui/Footer";
 import ClientProviders from "@/components/providers/ClientProviders";
 import TransitionProvider from "@/components/providers/TransitionProvider";
 
@@ -37,11 +35,7 @@ export default function RootLayout({
       >
         <div className="grain-overlay" aria-hidden="true" />
         <ClientProviders>
-          <TransitionProvider>
-            <Header />
-            <main className="relative z-[1] flex-1">{children}</main>
-            <Footer />
-          </TransitionProvider>
+          <TransitionProvider>{children}</TransitionProvider>
         </ClientProviders>
       </body>
     </html>

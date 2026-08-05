@@ -16,6 +16,45 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Resume builder — local AI setup
+
+The resume builder sends AI requests to a Cloudflare Worker. For local development you need **two terminals**:
+
+### 1. Worker (port 8787)
+
+```bash
+cd resume-ai-worker
+yarn install   # first time only
+yarn dev
+```
+
+On first run, log in to Cloudflare if prompted:
+
+```bash
+npx wrangler login
+```
+
+### 2. Next.js (port 3000)
+
+Copy the example env file and start the app:
+
+```bash
+cp .env.example .env.local
+yarn dev
+```
+
+`.env.local` must include:
+
+```env
+NEXT_PUBLIC_RESUME_AI_ENDPOINT=http://localhost:8787
+```
+
+Restart `yarn dev` after creating or changing `.env.local`.
+
+### Production
+
+Set `NEXT_PUBLIC_RESUME_AI_ENDPOINT` to your deployed Worker URL (GitHub Actions uses the repository variable of the same name).
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

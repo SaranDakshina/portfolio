@@ -1,0 +1,5 @@
+# Local development only — do not commit
+# Copy to .dev.vars and set your values after rotating any exposed tokens.
+
+AI_MODEL=@cf/openai/gpt-oss-20b
+ALLOWED_ORIGIN=http://localhost:3000
